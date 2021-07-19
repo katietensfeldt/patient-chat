@@ -1,7 +1,7 @@
 class ConversationsController < ApplicationController
   def index
     conversations = current_user.conversations
-    render json: conversations.as_json
+    render json: conversations
   end
 
   def create
@@ -10,7 +10,7 @@ class ConversationsController < ApplicationController
       partner_id: params[:partner_id]
     )
     if conversation.save
-      render json: conversation.as_json
+      render json: conversation
     else
       render json: { errors: conversation.errors.full_messages }, status: :bad_request
     end
@@ -18,7 +18,7 @@ class ConversationsController < ApplicationController
 
   def show
     conversation = current_user.conversations.find(params[:id])
-    render json: conversation.as_json
+    render json: conversation
   end
 
   def destroy

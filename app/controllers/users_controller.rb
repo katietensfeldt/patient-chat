@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     users = User.where("type_of = 1")
-    render json: users.as_json
+    render json: users
   end
 
   def create
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       type_of: params[:type_of],
     )
     if user.save
-      render json: user.as_json, status: :created
+      render json: user, status: :created
     else
       render json: { errors: user.errors.full_messages }, status: :bad_request
     end
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   def show
     user = User.find(params[:id])
-    render json: user.as_json
+    render json: user
   end
 
   def update
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       user.email = params[:email] || user.email  
       user.type_of = params[:type_of] || user.type_of
       if user.save
-        render json: user.as_json
+        render json: user
       else
         render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
       end

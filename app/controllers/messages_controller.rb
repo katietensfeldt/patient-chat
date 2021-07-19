@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
       conversation_id: params[:conversation_id]
     )
     if message.save
-      render json: message.as_json
+      render json: message
     else
       render json: {errors: message.errors.full_messages}, status: :unprocessable_entity
     end
