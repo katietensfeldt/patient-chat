@@ -5,5 +5,10 @@ Rails.application.routes.draw do
   patch "/users/:id" => "users#update"
   delete "/users/:id" => "users#destroy"
 
+  get "/conversations" => "conversations#index"
+  post "/conversations" => "conversations#create"
+  get "/conversations/:id" => "conversations#show"
+  delete "/conversations/:id" => "conversations#destroy"
+
   post "/sessions" => "sessions#create"
 end
