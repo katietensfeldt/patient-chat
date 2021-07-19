@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   get "/conversations/:id" => "conversations#show"
   delete "/conversations/:id" => "conversations#destroy"
 
+  post "/messages" => "messages#create"
+
   post "/sessions" => "sessions#create"
 end
