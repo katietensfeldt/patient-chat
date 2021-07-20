@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  # before_action :authenticate_user, except: [:create]
   def index
     users = User.where("type_of = 1")
     render json: users
