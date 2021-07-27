@@ -1,10 +1,5 @@
 class MessagesController < ApplicationController
 
-  def index
-    messages = Message.all.order(:created_at => :desc)
-    render json: messages
-  end
-
   def create
     message = Message.new(
       user_id: current_user.id,
