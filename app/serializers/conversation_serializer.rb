@@ -3,7 +3,6 @@ class ConversationSerializer < ActiveModel::Serializer
 
   belongs_to :patient
   belongs_to :partner
-  has_many :messages
 
   def last_message
     object.messages.last
